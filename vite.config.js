@@ -1,4 +1,3 @@
 export default {
-  base: 'reveal-markdown-example',
-  publicDir: 'slides',
+  base: '/reveal-markdown-example/',
 }

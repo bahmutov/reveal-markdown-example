@@ -30,7 +30,8 @@ const getBaseName = (relativeUrl) => {
 }
 
 // fetch the Markdown file ourselves
-const markdownFilename = PROD ? './test/PITCHME.md' : './slides/test/PITCHME.md'
+const toLoad = 'intro/PITCHME.md'
+const markdownFilename = './' + (PROD ? toLoad : 'slides/' + toLoad)
 // document.querySelector('.slides').innerHTML = `
 //   <section data-markdown="${markdownFilename}"
 //            data-separator="\\-\\-\\-"

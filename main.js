@@ -3,7 +3,7 @@ import 'reveal.js/dist/theme/league.css'
 import Reveal from 'reveal.js'
 import Markdown from 'reveal.js/plugin/markdown/markdown.esm.js'
 
-const markdownFilename = './slides/intro/PITCHME.md'
+const markdownFilename = './slides/test/PITCHME.md'
 document.querySelector('.slides').innerHTML = `
   <section data-markdown="${markdownFilename}"
            data-separator="\\-\\-\\-"

@@ -3,6 +3,15 @@ import 'reveal.js/dist/theme/league.css'
 import Reveal from 'reveal.js'
 import Markdown from 'reveal.js/plugin/markdown/markdown.esm.js'
 
+// something like
+// {BASE_URL: "/reveal-markdown-example/", MODE: "development", DEV: true, PROD: false, SSR: false}
+// https://vitejs.dev/guide/env-and-mode.html
+console.log('env variables', import.meta.env)
+const { BASE_URL, PROD } = import.meta.env
+if (typeof BASE_URL !== 'string') {
+  throw new Error('Missing BASE_URL in import.meta.env')
+}
+
 // let Reveal request the Markdown file
 // const markdownFilename = './slides/test/PITCHME.md'
 // document.querySelector('.slides').innerHTML = `
@@ -21,7 +30,7 @@ const getBaseName = (relativeUrl) => {
 }
 
 // fetch the Markdown file ourselves
-const markdownFilename = './slides/test/PITCHME.md'
+const markdownFilename = PROD ? './test/PITCHME.md' : './slides/test/PITCHME.md'
 // document.querySelector('.slides').innerHTML = `
 //   <section data-markdown="${markdownFilename}"
 //            data-separator="\\-\\-\\-"
@@ -30,7 +39,7 @@ const markdownFilename = './slides/test/PITCHME.md'
 
 const markdownFileBase = getBaseName(markdownFilename)
 console.log('markdown file base', markdownFileBase)
-const baseUrl = '/reveal-markdown-example/' + markdownFileBase + '/'
+const baseUrl = BASE_URL + markdownFileBase + '/'
 
 const updateRelativeUrls = (md) => {
   return md.replace(/\.\//g, baseUrl)

@@ -1,14 +1,17 @@
 {
   "name": "example-app",
   "version": "0.0.0",
+  "private": true,
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "serve:2": "serve dist"
   },
   "devDependencies": {
     "prettier": "2.2.1",
     "reveal.js": "4.1.0",
+    "serve": "11.3.2",
     "vite": "^2.0.0-beta.70"
   }
 }
